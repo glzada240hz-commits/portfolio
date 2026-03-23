@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gustavo Alves — Dev Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="portifolio.css"/>
+</head>
+<body>
+
+  <!-- Cursor customizado -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ── NAVEGAÇÃO ── -->
+  <nav id="navbar">
+    <div class="nav-logo">G.ALVES</div>
+    <ul class="nav-links">
+      <li><a href="#about">sobre</a></li>
+      <li><a href="#projects">projetos</a></li>
+      <li><a href="#contact">contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      disponível para estágio
+    </div>
+
+    <p class="hero-eyebrow">// Desenvolvedor Front-end · ADS 2026</p>
+
+    <h1 class="hero-name">
+      GUSTAVO<br><span>ALVES</span>
+    </h1>
+
+    <div class="hero-tagline">
+      <p>Construo interfaces que as pessoas <strong>sentem</strong>. HTML, CSS e JavaScript — do zero ao pixel perfeito.</p>
+      <a href="#projects" class="hero-cta">Ver projetos →</a>
+    </div>
+
+    <span class="hero-scroll-hint">scroll</span>
+  </section>
+
+  <!-- ── MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">HTML5</span>
+      <span class="marquee-item">CSS3</span>
+      <span class="marquee-item">JavaScript ES6+</span>
+      <span class="marquee-item">Responsivo</span>
+      <span class="marquee-item">Git & GitHub</span>
+      <span class="marquee-item">Figma</span>
+      <span class="marquee-item">Acessibilidade</span>
+      <span class="marquee-item">Performance Web</span>
+      <span class="marquee-item">HTML5</span>
+      <span class="marquee-item">CSS3</span>
+      <span class="marquee-item">JavaScript ES6+</span>
+      <span class="marquee-item">Responsivo</span>
+      <span class="marquee-item">Git & GitHub</span>
+      <span class="marquee-item">Figma</span>
+      <span class="marquee-item">Acessibilidade</span>
+      <span class="marquee-item">Performance Web</span>
+    </div>
+  </div>
+
+  <!-- ── SOBRE MIM ── -->
+  <section id="about">
+    <p class="section-label reveal">// 001 — Sobre mim</p>
+    <h2 class="section-title reveal">Quem sou<br>eu?</h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Olá! Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong>,
+          me formando em 2026. Sou apaixonado por criar experiências web que combinam
+          <strong>código limpo</strong> com <strong>design que surpreende</strong>.
+        </p>
+        <p>
+          Acredito que um bom front-end não é só sobre fazer funcionar —
+          é sobre fazer o usuário <strong>sentir algo</strong> ao interagir com a interface.
+          Cada pixel, cada transição, cada detalhe importa.
+        </p>
+        <p>
+          Estou em busca de um <strong>estágio</strong> onde eu possa contribuir de verdade,
+          aprender rápido e crescer junto com o time.
+        </p>
+      </div>
+
+      <div class="skills-grid reveal">
+        <div class="skill-row">
+          <div class="skill-header"><span>HTML & CSS</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span>JavaScript</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-fill accent2" data-width="75"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span>Responsividade</span><span>85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span>Git & GitHub</span><span>65%</span></div>
+          <div class="skill-bar"><div class="skill-fill accent3" data-width="65"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span>Figma / Design</span><span>60%</span></div>
+          <div class="skill-bar"><div class="skill-fill accent2" data-width="60"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJETOS ── -->
+  <section id="projects">
+    <p class="section-label reveal">// 002 — Projetos</p>
+    <h2 class="section-title reveal">O que já<br>construí</h2>
+
+    <div class="projects-grid">
+
+      <!-- Projeto Destaque -->
+      <article class="project-card featured reveal">
+        <div>
+          <div class="project-num">01</div>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="project-title">FinanceFlow — App de Finanças Pessoais</h3>
+          <p class="project-desc">
+            Sistema completo para controle financeiro pessoal com dark/light mode,
+            gráficos por categoria, navegação por mês e persistência via localStorage.
+            Validação de formulário, animações e design responsivo do zero.
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link">Demo ao vivo →</a>
+            <a href="#" class="project-link secondary">GitHub →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 2 -->
+      <article class="project-card reveal">
+        <div class="project-num">02</div>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <h3 class="project-title">Calculadora — Operações em Tempo Real</h3>
+        <p class="project-desc">
+          Calculadora funcional com as quatro operações matemáticas, suporte a teclado,
+          histórico de cálculos e tratamento de erros (divisão por zero, overflow).
+          Layout responsivo com animações nos botões e display animado.
+        </p>
+        <div class="project-links">
+          <a href="calculadora.html" class="project-links">Demo →</a>
+          <a href="#" class="project-link secondary">GitHub →</a>
+        </div>
+      </article>
+
+      <!-- Projeto 3 -->
+      <article class="project-card reveal">
+        <div class="project-num">03</div>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">localStorage</span>
+        </div>
+        <h3 class="project-title">TaskFlow — Lista de Tarefas</h3>
+        <p class="project-desc">
+          Gerenciador de tarefas com criação, conclusão e exclusão de itens, filtros
+          por status (todas, ativas, concluídas) e persistência via localStorage.
+          Drag-and-drop para reordenar e contagem de tarefas em tempo real.
+        </p>
+        <div class="project-links">
+          <a href="#" class="project-link">Demo →</a>
+          <a href="#" class="project-link secondary">GitHub →</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── CONTATO ── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label reveal" style="text-align:center">// 003 — Contato</p>
+      <h2 class="contact-title reveal">Vamos<br>trabalhar<br><span>juntos?</span></h2>
+      <p class="contact-sub reveal">
+        Estou disponível para estágios e oportunidades em front-end.<br>
+        Me manda uma mensagem — respondo rápido.
+      </p>
+      <div class="contact-links reveal">
+        <a href="mailto:gustavoal1204@gmail.com" class="contact-btn primary">✉ gustavoal1204@gmail.com</a>
+        <a href="https://linkedin.com/in/seuperfil" class="contact-btn" target="_blank">LinkedIn →</a>
+        <a href="https://github.com/seuperfil" class="contact-btn" target="_blank">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RODAPÉ ── -->
+  <footer>
+    <p>© 2026 <span>Gustavo Alves</span> — Feito com HTML, CSS & JS puro</p>
+    <p>Disponível para estágio <span>·</span> Minas Gerais, BR</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="portifolio.js"></script>
+
+</body>
+</html>
