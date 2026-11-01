@@ -136,3 +136,30 @@ if (activityStatus && activityList && refreshButton) {
     activityObserver.observe(document.querySelector('#atividade'));
   } else { void loadActivity(); }
 }
+
+
+// Email options work without a configured desktop mail client.
+const copyEmailButton = document.querySelector('#copy-email');
+const contactEmailInput = document.querySelector('#contact-email');
+const emailCopyStatus = document.querySelector('#email-copy-status');
+if (copyEmailButton && contactEmailInput && emailCopyStatus) {
+  copyEmailButton.hidden = false;
+  copyEmailButton.addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard indisponível');
+      await navigator.clipboard.writeText(contactEmailInput.value);
+      emailCopyStatus.textContent = 'Endereço copiado. Cole no seu serviço de e-mail para escrever a mensagem.';
+    } catch {
+      contactEmailInput.focus();
+      contactEmailInput.select();
+      emailCopyStatus.textContent = 'O navegador não permitiu copiar automaticamente. O endereço está selecionado: use Ctrl+C ou toque e segure para copiar.';
+    }
+  });
+  const emailDetails = document.querySelector('.email-contact');
+  emailDetails.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      emailDetails.open = false;
+      emailDetails.querySelector('summary').focus();
+    }
+  });
+}
