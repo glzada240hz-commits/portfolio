@@ -1,220 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gustavo Alves — Dev Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080a0b">
+  <meta name="description" content="Gustavo Alves Lima — estudante de ADS. Projetos web, mobile e Windows, tecnologias em aprendizado e desenvolvimento assistido por IA.">
+  <title>Gustavo Alves Lima — Desenvolvimento de software</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23080a0b'/%3E%3Ctext x='12' y='44' fill='%23b9f4c5' font-family='monospace' font-size='32'%3Ega%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Cursor customizado -->
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-
-  <!-- ── NAVEGAÇÃO ── -->
-  <nav id="navbar">
-    <div class="nav-logo">G.ALVES</div>
-    <ul class="nav-links">
-      <li><a href="#about">sobre</a></li>
-      <li><a href="#projects">projetos</a></li>
-      <li><a href="#contact">contato</a></li>
-    </ul>
-  </nav>
-
-  <!-- ── HERO ── -->
-  <section id="hero">
-    <div class="hero-grid-bg"></div>
-
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      disponível para estágio
-    </div>
-
-    <p class="hero-eyebrow">// Desenvolvedor Front-end · ADS 2026</p>
-
-    <h1 class="hero-name">
-      GUSTAVO<br><span>ALVES</span>
-    </h1>
-
-    <div class="hero-tagline">
-      <p>Construo interfaces que as pessoas <strong>sentem</strong>. HTML, CSS e JavaScript — do zero ao pixel perfeito.</p>
-      <a href="#projects" class="hero-cta">Ver projetos →</a>
-    </div>
-
-    <span class="hero-scroll-hint">scroll</span>
-  </section>
-
-  <!-- ── MARQUEE ── -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">HTML5</span>
-      <span class="marquee-item">CSS3</span>
-      <span class="marquee-item">JavaScript ES6+</span>
-      <span class="marquee-item">Responsivo</span>
-      <span class="marquee-item">Git &amp; GitHub</span>
-      <span class="marquee-item">Figma</span>
-      <span class="marquee-item">Acessibilidade</span>
-      <span class="marquee-item">Performance Web</span>
-      <span class="marquee-item">HTML5</span>
-      <span class="marquee-item">CSS3</span>
-      <span class="marquee-item">JavaScript ES6+</span>
-      <span class="marquee-item">Responsivo</span>
-      <span class="marquee-item">Git &amp; GitHub</span>
-      <span class="marquee-item">Figma</span>
-      <span class="marquee-item">Acessibilidade</span>
-      <span class="marquee-item">Performance Web</span>
-    </div>
-  </div>
-
-  <!-- ── SOBRE MIM ── -->
-  <section id="about">
-    <p class="section-label reveal">// 001 — Sobre mim</p>
-    <h2 class="section-title reveal">Quem sou<br>eu?</h2>
-
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>
-          Olá! Sou estudante de <strong>Análise e Desenvolvimento de Sistemas</strong>,
-          me formando em 2026. Sou apaixonado por criar experiências web que combinam
-          <strong>código limpo</strong> com <strong>design que surpreende</strong>.
-        </p>
-        <p>
-          Acredito que um bom front-end não é só sobre fazer funcionar —
-          é sobre fazer o usuário <strong>sentir algo</strong> ao interagir com a interface.
-          Cada pixel, cada transição, cada detalhe importa.
-        </p>
-        <p>
-          Estou em busca de um <strong>estágio</strong> onde eu possa contribuir de verdade,
-          aprender rápido e crescer junto com o time.
-        </p>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="header">
+    <nav class="container nav" aria-label="Principal">
+      <a class="wordmark" href="#inicio" aria-label="Gustavo Alves, início">g<span>alves</span><b>.</b></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" hidden>Menu <span aria-hidden="true">☰</span></button>
+      <div id="nav-links" class="nav-links"><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#tecnologias">Tecnologias</a><a href="#atividade">Atividade</a><a class="nav-contact" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a></div>
+    </nav>
+  </header>
+  <main id="conteudo">
+    <section id="inicio" class="hero container">
+      <div class="hero-copy">
+        <p class="availability"><span class="status-dot" aria-hidden="true"></span> Aberto a oportunidades de estágio</p>
+        <p class="eyebrow">GUSTAVO ALVES LIMA / DESENVOLVIMENTO DE SOFTWARE</p>
+        <h1>Ideias em código.<br><span>Projetos em<br class="desktop-break"> evolução.</span></h1>
+        <p class="hero-description">Da interface web ao aplicativo Windows. Estudando, construindo e aprendendo novas tecnologias a cada projeto.</p>
+        <div class="hero-actions"><a class="button primary" href="#projetos">Explorar projetos <span aria-hidden="true">↘</span></a><a class="text-link" href="https://github.com/glzada240hz-commits" target="_blank" rel="noopener noreferrer">Meu GitHub <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-meta"><span>ESTUDANTE DE ADS</span><span>WEB · MOBILE · DESKTOP</span></div>
       </div>
-
-      <div class="skills-grid reveal">
-        <div class="skill-row">
-          <div class="skill-header"><span>HTML &amp; CSS</span><span>90%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span>JavaScript</span><span>75%</span></div>
-          <div class="skill-bar"><div class="skill-fill accent2" data-width="75"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span>Responsividade</span><span>85%</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span>Git &amp; GitHub</span><span>65%</span></div>
-          <div class="skill-bar"><div class="skill-fill accent3" data-width="65"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span>Figma / Design</span><span>60%</span></div>
-          <div class="skill-bar"><div class="skill-fill accent2" data-width="60"></div></div>
-        </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+        <span class="orbit-label label-ts">TS</span><span class="orbit-label label-cs">C#</span><span class="orbit-label label-js">JS</span>
+        <div class="code-window"><div class="window-bar"><span></span><span></span><span></span><small>em constante construção</small></div><div class="code-lines"><p><i>const</i> desenvolvedor = {</p><p>&nbsp; nome: <em>'Gustavo'</em>,</p><p>&nbsp; curiosidade: <i>true</i>,</p><p>&nbsp; próximoPasso: <em>'construir'</em></p><p>};</p><br><p class="code-comment">// aprender. testar. evoluir.</p><p>desenvolvedor.<strong>continuar</strong>();<span class="caret">▌</span></p></div><div class="window-footer"><span>● aprendizado em prática</span><span>↗</span></div></div>
+        <span class="art-caption">CURIOSIDADE → EXPERIMENTO → PROJETO</span>
       </div>
-    </div>
-  </section>
+    </section>
+    <div class="tech-strip" aria-label="Áreas de desenvolvimento"><div class="container"><span>Interfaces web</span><b aria-hidden="true">✳</b><span>Aplicativos móveis</span><b aria-hidden="true">✳</b><span>Ferramentas Windows</span><b aria-hidden="true">✳</b><span>Desenvolvimento com IA</span></div></div>
 
-  <!-- ── PROJETOS ── -->
-  <section id="projects">
-    <p class="section-label reveal">// 002 — Projetos</p>
-    <h2 class="section-title reveal">O que já<br>construí</h2>
-
-    <div class="projects-grid">
-
-      <!-- 01: FinanceFlow — card destaque (2 colunas) -->
-      <article class="project-card featured reveal">
-        <div>
-          <div class="project-num">01</div>
-          <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">localStorage</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="project-title">FinanceFlow — App de Finanças Pessoais</h3>
-          <p class="project-desc">
-            Sistema completo para controle financeiro pessoal com gráfico de categorias,
-            navegação por mês, modal de transações e persistência via localStorage.
-            Validação de formulário, animações e design responsivo do zero.
-          </p>
-          <div class="project-links">
-            <a href="https://glzada240hz-commits.github.io/financeflow/" target="_blank" class="project-link">Demo ao vivo →</a>
-            <a href="https://github.com/glzada240hz-commits/financeflow" target="_blank" class="project-link secondary">GitHub →</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02: Calculadora -->
-      <article class="project-card reveal">
-        <div class="project-num">02</div>
-        <div class="project-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
-        <h3 class="project-title">Calculadora — Operações em Tempo Real</h3>
-        <p class="project-desc">
-          Calculadora funcional com as quatro operações matemáticas, suporte a teclado,
-          histórico de cálculos e tratamento de erros (divisão por zero, overflow).
-          Layout responsivo com animações nos botões e display animado.
-        </p>
-        <div class="project-links">
-          <a href="https://glzada240hz-commits.github.io/calculadora/" target="_blank" class="project-link">Demo →</a>
-          <a href="https://github.com/glzada240hz-commits/calculadora" target="_blank" class="project-link secondary">GitHub →</a>
-        </div>
-      </article>
-
-      <!-- 03: TaskFlow -->
-      <article class="project-card reveal">
-        <div class="project-num">03</div>
-        <div class="project-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">localStorage</span>
-        </div>
-        <h3 class="project-title">TaskFlow — Lista de Tarefas</h3>
-        <p class="project-desc">
-          Gerenciador de tarefas com criação, conclusão e exclusão de itens, filtros
-          por status (todas, ativas, concluídas) e persistência via localStorage.
-          Contagem de tarefas em tempo real e interface dark responsiva.
-        </p>
-        <div class="project-links">
-          <a href="https://glzada240hz-commits.github.io/taskflow/" target="_blank" class="project-link">Demo →</a>
-          <a href="https://github.com/glzada240hz-commits/taskflow" target="_blank" class="project-link secondary">GitHub →</a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ── CONTATO ── -->
-  <section id="contact">
-    <div class="contact-inner">
-      <p class="section-label reveal" style="text-align:center">// 003 — Contato</p>
-      <h2 class="contact-title reveal">Vamos<br>trabalhar<br><span>juntos?</span></h2>
-      <p class="contact-sub reveal">
-        Estou disponível para estágios e oportunidades em front-end.<br>
-        Me manda uma mensagem — respondo rápido.
-      </p>
-      <div class="contact-links reveal">
-        <a href="mailto:glzada240hz@gmail.com" class="contact-btn primary">&#9993; glzada240hz&#64;gmail.com</a>
-        <a href="https://github.com/glzada240hz-commits" target="_blank" class="contact-btn">GitHub →</a>
+    <section id="projetos" class="section container">
+      <div class="section-heading"><div><p class="eyebrow">01 / TRABALHOS SELECIONADOS</p><h2>Construindo na prática<span>.</span></h2></div><p>Projetos em diferentes fases.<br>O aprendizado também faz parte da entrega.</p></div>
+      <div class="filters" role="group" aria-label="Filtrar projetos" hidden><button class="filter active" data-filter="todos" aria-pressed="true">Todos <span>6</span></button><button class="filter" data-filter="web" aria-pressed="false">Web</button><button class="filter" data-filter="mobile" aria-pressed="false">Mobile</button><button class="filter" data-filter="desktop" aria-pressed="false">Desktop</button></div>
+      <p id="filter-status" class="sr-only" role="status"></p>
+      <div class="projects-grid">
+        <article class="project-card" data-category="desktop">
+          <div class="project-visual visual-prumo" aria-hidden="true"><div class="mini-desktop"><aside><b>p.</b><span></span><span></span><span></span></aside><div><small>VISÃO GERAL</small><strong>Conheça seu PC.</strong><div class="mini-metrics"><i>CPU<em>diagnóstico</em></i><i>RAM<em>recursos</em></i><i>GPU<em>gráficos</em></i></div><div class="mini-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="mini-bottom">Histórico e reversão <b>↗</b></div></div></div><span class="concept-label">VISUAL CONCEITUAL</span></div>
+          <div class="project-body"><div class="project-top"><span class="category">DESKTOP / WINDOWS</span><span class="badge">Em desenvolvimento</span></div><h3>Prumo <span>↗</span></h3><p>Diagnóstico e otimização geral do Windows, com recomendações, backup e reversão das alterações.</p><ul class="tags" aria-label="Tecnologias"><li>C#</li><li>.NET</li><li>WPF</li></ul><div class="project-footer"><span>Repositório privado · em validação</span><button class="detail-button" data-project="prumo" aria-label="Conhecer o projeto Prumo" hidden>Conhecer <span aria-hidden="true">↗</span></button></div></div>
+        </article>
+        <article class="project-card" data-category="web">
+          <div class="project-visual visual-management" aria-hidden="true"><div class="mini-pos"><div class="pos-head"><b>Gestão.</b><span>Operação integrada</span></div><div class="pos-layout"><div class="pos-items"><i>Pedidos</i><i>Caixa</i><i>Estoque</i><i>Entregas</i></div><div class="pos-order"><small>FLUXO DE PEDIDOS</small><span>Recebido <b>✓</b></span><span>Em preparo <b>↗</b></span><span>Entrega <b>→</b></span><em>Tudo conectado</em></div></div></div><span class="concept-label">VISUAL CONCEITUAL</span></div>
+          <div class="project-body"><div class="project-top"><span class="category">WEB / GESTÃO</span><span class="badge">Em desenvolvimento</span></div><h3>Sistema de Gestão <span>↗</span></h3><p>Da comanda à entrega: PDV, cozinha, caixa, estoque e relatórios para estabelecimentos de alimentação.</p><ul class="tags" aria-label="Tecnologias"><li>TypeScript</li><li>React</li><li>Node.js</li><li>PostgreSQL</li></ul><div class="project-footer"><span>Integrações em validação</span><button class="detail-button" data-project="gestao" aria-label="Conhecer o Sistema de Gestão" hidden>Conhecer <span aria-hidden="true">↗</span></button></div></div>
+        </article>
+        <article class="project-card" data-category="mobile">
+          <div class="project-visual visual-monta" aria-hidden="true"><span class="monta-word">Conexões que<br>viram trabalho.</span><div class="mini-phone"><div class="phone-notch"></div><b>MONTA<span>●</span></b><small>EMPRESAS & PROFISSIONAIS</small><div class="phone-avatar">↗</div><strong>O próximo projeto<br>começa aqui.</strong><i>Especialidades <span>→</span></i><i>Oportunidades <span>→</span></i><em>Explorar</em></div><span class="concept-label">VISUAL CONCEITUAL</span></div>
+          <div class="project-body"><div class="project-top"><span class="category">MOBILE / PLATAFORMA</span><span class="badge">Em desenvolvimento</span></div><h3>MONTA <span>↗</span></h3><p>Conexão entre empresas de montagem e profissionais, com aplicativos separados e contratação por especialidade.</p><ul class="tags" aria-label="Tecnologias"><li>TypeScript</li><li>React Native</li><li>Expo</li></ul><div class="project-footer"><span>Repositório privado · em desenvolvimento</span><button class="detail-button" data-project="monta" aria-label="Conhecer o projeto MONTA" hidden>Conhecer <span aria-hidden="true">↗</span></button></div></div>
+        </article>
+        <article class="project-card" data-category="web"><div class="project-visual visual-finance" aria-hidden="true"><div class="finance-art"><div><small>FINANCEFLOW</small><strong>Seu dinheiro.<br>Mais clareza.</strong><span>Receitas · Despesas · Categorias</span></div><div class="donut"></div></div><span class="concept-label">VISUAL CONCEITUAL</span></div><div class="project-body"><div class="project-top"><span class="category">WEB / FINANÇAS</span><span class="badge public">Demo disponível</span></div><h3>FinanceFlow <span>↗</span></h3><p>Controle financeiro com gráficos por categoria, filtros mensais, edição de transações e armazenamento local.</p><ul class="tags"><li>JavaScript</li><li>Chart.js</li><li>localStorage</li></ul><div class="project-footer"><a href="https://glzada240hz-commits.github.io/financeflow/" target="_blank" rel="noopener noreferrer">Abrir demo ↗</a><a href="https://github.com/glzada240hz-commits/financeflow" target="_blank" rel="noopener noreferrer">Código ↗</a></div></div></article>
+        <article class="project-card compact-card" data-category="web"><div class="compact-symbol" aria-hidden="true">✓<span>01 / 03</span></div><div class="project-body"><div class="project-top"><span class="category">WEB / PRODUTIVIDADE</span><span class="badge public">Demo disponível</span></div><h3>TaskFlow <span>↗</span></h3><p>Tarefas, prioridades e filtros em uma interface com persistência no navegador.</p><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul><div class="project-footer"><a href="https://glzada240hz-commits.github.io/taskflow/" target="_blank" rel="noopener noreferrer">Abrir demo ↗</a><a href="https://github.com/glzada240hz-commits/taskflow" target="_blank" rel="noopener noreferrer">Código ↗</a></div></div></article>
+        <article class="project-card compact-card" data-category="web"><div class="compact-symbol calc-symbol" aria-hidden="true">＋<span>× ÷ − =</span></div><div class="project-body"><div class="project-top"><span class="category">WEB / FUNDAMENTOS</span><span class="badge public">Demo disponível</span></div><h3>Calculadora <span>↗</span></h3><p>Operações matemáticas, histórico de cálculos e suporte ao teclado em um layout responsivo.</p><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul><div class="project-footer"><a href="https://glzada240hz-commits.github.io/calculadora/" target="_blank" rel="noopener noreferrer">Abrir demo ↗</a><a href="https://github.com/glzada240hz-commits/calculadora" target="_blank" rel="noopener noreferrer">Código ↗</a></div></div></article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── RODAPÉ ── -->
-  <footer>
-    <p>&#169; 2026 <span>Gustavo Alves</span> — Feito com HTML, CSS &amp; JS puro</p>
-    <p>Disponível para estágio <span>&#183;</span> Minas Gerais, BR</p>
-  </footer>
+    <section id="sobre" class="section about-section"><div class="container about-grid"><div><p class="eyebrow">02 / POR TRÁS DO CÓDIGO</p><h2>Aprendendo.<br>Construindo.<br><span>Evoluindo.</span></h2></div><div class="about-copy"><p class="lead">Sou Gustavo Alves Lima, estudante de <strong>Análise e Desenvolvimento de Sistemas</strong>.</p><p>Comecei com interfaces em HTML, CSS e JavaScript. Hoje, exploro novas tecnologias em projetos web, mobile e Windows, aprendendo a conectar interface, regras de negócio e dados.</p><p>Busco uma oportunidade de estágio para aprender com uma equipe, contribuir com projetos e desenvolver autonomia técnica.</p><div class="about-note"><span aria-hidden="true">↗</span><p>Mais do que listar tecnologias, quero entender as decisões por trás de cada solução.</p></div></div></div></section>
 
-  <script src="script.js"></script>
+    <section id="tecnologias" class="section container"><div class="section-heading"><div><p class="eyebrow">03 / CAIXA DE FERRAMENTAS</p><h2>Conhecimento em movimento<span>.</span></h2></div><p>Sem barras de domínio.<br>Aprendizado demonstrado em projetos.</p></div><div class="skills-grid"><article class="skill-card"><span class="skill-number">01</span><p class="eyebrow">FUNDAMENTOS EM PRÁTICA</p><h3>A base de tudo.</h3><p>Estrutura, estilo, interatividade e versionamento.</p><ul class="skill-tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Git</li><li>GitHub</li><li>DOM</li><li>localStorage</li></ul></article><article class="skill-card"><span class="skill-number">02</span><p class="eyebrow">APRENDENDO NOS PROJETOS</p><h3>Novas possibilidades.</h3><p>Aplicações tipadas, interfaces e integração com dados.</p><ul class="skill-tags"><li>TypeScript</li><li>React</li><li>Node.js</li><li>Fastify</li><li>PostgreSQL</li><li>React Native</li><li>Expo</li><li>C#</li><li>.NET / WPF</li><li>Vitest</li><li>Playwright</li></ul></article></div><article class="ai-card"><div class="ai-mark" aria-hidden="true">✳</div><div><p class="eyebrow">IA COMO PARCEIRA DE DESENVOLVIMENTO</p><h3>Construir com IA.<br>Aprender com o processo.</h3><p>Uso Claude e ChatGPT/Codex como apoio para prototipação, implementação, revisão e investigação de erros. Estou aprendendo a compreender as sugestões, avaliar decisões e validar os resultados com testes e documentação.</p><div class="ai-tools"><span>Claude</span><span>ChatGPT / Codex</span><span>Revisão e validação</span></div></div></article></section>
 
+    <section id="atividade" class="section container"><div class="section-heading"><div><p class="eyebrow">04 / EM CONSTANTE CONSTRUÇÃO</p><h2>O trabalho continua<span>.</span></h2></div><a class="text-link" href="https://github.com/glzada240hz-commits?tab=overview" target="_blank" rel="noopener noreferrer">Atividade no GitHub ↗</a></div><div class="activity-box"><div class="activity-header"><span><span class="status-dot" aria-hidden="true"></span> Atualizações dos projetos públicos</span><button id="refresh-activity" class="text-button" hidden>Atualizar ↻</button></div><p id="activity-status" class="activity-status" role="status">Consulte os commits e as atualizações reais nos repositórios públicos abaixo.</p><ol id="activity-list" class="activity-list"></ol><div class="activity-fallback"><a href="https://github.com/glzada240hz-commits/portfolio/commits/main/" target="_blank" rel="noopener noreferrer">Portfólio ↗</a><a href="https://github.com/glzada240hz-commits/financeflow/commits/main/" target="_blank" rel="noopener noreferrer">FinanceFlow ↗</a><a href="https://github.com/glzada240hz-commits/taskflow/commits/main/" target="_blank" rel="noopener noreferrer">TaskFlow ↗</a><a href="https://github.com/glzada240hz-commits/calculadora/commits/main/" target="_blank" rel="noopener noreferrer">Calculadora ↗</a></div></div><p class="activity-note">Atividade pública consultada na API do GitHub ao abrir esta página. Projetos privados e dados do sistema de gestão não são exibidos neste feed.</p></section>
+
+    <section id="contato" class="contact-section container"><p class="eyebrow">05 / PRÓXIMA CONEXÃO</p><h2>Vamos construir<br><span>algo juntos?</span><a href="https://www.linkedin.com/in/gustavo-alves-lima-9442973ba" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Gustavo no LinkedIn">↗</a></h2><div class="contact-bottom"><p>Aberto a estágios e conversas<br>sobre desenvolvimento de software.</p><div><a class="button primary" href="https://www.linkedin.com/in/gustavo-alves-lima-9442973ba" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="text-link" href="mailto:glzada240hz@gmail.com">Enviar e-mail ↗</a></div></div></section>
+  </main>
+  <footer class="container footer"><a class="wordmark" href="#inicio">galves<b>.</b></a><p>© <span id="year">2026</span> Gustavo Alves Lima</p><span>HTML, CSS, JavaScript & aprendizado contínuo.</span></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span class="eyebrow">POR DENTRO DO PROJETO</span><button class="close-dialog" aria-label="Fechar detalhes do projeto">✕</button></div><h2 id="dialog-title"></h2><p id="dialog-description"></p><h3>O que estou explorando</h3><ul id="dialog-learning"></ul><p id="dialog-state" class="dialog-state"></p><button class="button primary close-dialog">Voltar aos projetos</button></dialog>
 </body>
 </html>

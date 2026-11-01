@@ -1,91 +1,138 @@
-/* =============================================
-   GUSTAVO ALVES — script.js
-   Portfólio Front-end
-============================================= */
+'use strict';
 
-/* ── CURSOR CUSTOMIZADO ── */
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.left = mx + 'px';
-  cursor.style.top  = my + 'px';
-});
-
-function animateRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px';
-  ring.style.top  = ry + 'px';
-  requestAnimationFrame(animateRing);
+// Progressive enhancement: navigation and project content also work without JS.
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#nav-links');
+if (menuButton && navigation) {
+  document.documentElement.classList.add('menu-enabled');
+  menuButton.hidden = false;
+  const closeMenu = () => {
+    menuButton.setAttribute('aria-expanded', 'false');
+    navigation.classList.remove('open');
+  };
+  menuButton.addEventListener('click', () => {
+    const open = menuButton.getAttribute('aria-expanded') !== 'true';
+    menuButton.setAttribute('aria-expanded', String(open));
+    navigation.classList.toggle('open', open);
+  });
+  navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') { closeMenu(); menuButton.focus(); }
+  });
 }
-animateRing();
 
-// Expande cursor ao passar em links e botões
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width  = '20px';
-    cursor.style.height = '20px';
-    ring.style.width    = '56px';
-    ring.style.height   = '56px';
-    ring.style.opacity  = '0.8';
+const filters = document.querySelector('.filters');
+if (filters) {
+  filters.hidden = false;
+  filters.addEventListener('click', event => {
+    const button = event.target.closest('[data-filter]');
+    if (!button) return;
+    const value = button.dataset.filter;
+    filters.querySelectorAll('button').forEach(item => {
+      item.classList.toggle('active', item === button);
+      item.setAttribute('aria-pressed', String(item === button));
+    });
+    let count = 0;
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.hidden = value !== 'todos' && card.dataset.category !== value;
+      if (!card.hidden) count++;
+    });
+    document.querySelector('#filter-status').textContent = `${count} ${count === 1 ? "projeto exibido" : "projetos exibidos"}.`;
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width  = '12px';
-    cursor.style.height = '12px';
-    ring.style.width    = '36px';
-    ring.style.height   = '36px';
-    ring.style.opacity  = '0.5';
+}
+
+const details = {
+  prumo: { title: 'Prumo', description: 'Ferramenta desktop para diagnóstico e otimização geral do Windows. O projeto reúne recomendações, execução de ajustes, histórico e reversão.', learning: ['C#, .NET e interfaces WPF.', 'Separação entre interface e operações com privilégios.', 'Backup, verificação e recuperação de alterações.'], state: 'Em desenvolvimento. Validado parcialmente em ambiente de CI; testes em hardware real ainda são necessários. Não disponível comercialmente.' },
+  gestao: { title: 'Sistema de Gestão', description: 'Aplicação web responsiva voltada a estabelecimentos de alimentação. Integra PDV, mesas, comandas, cozinha, entregas, caixa e estoque.', learning: ['TypeScript no front-end e backend.', 'React, Vite, Node.js, Fastify e PostgreSQL.', 'Validação com Zod e testes com Vitest e Playwright.'], state: 'Versão funcional em desenvolvimento. Integrações externas, impressão e uso em produção ainda exigem validação.' },
+  monta: { title: 'MONTA', description: 'Plataforma para conectar empresas de montagem e profissionais disponíveis, com aplicativos separados e fluxos de contratação por especialidade.', learning: ['TypeScript, React Native e Expo.', 'Componentes e validações compartilhados entre aplicativos.', 'Modelagem de fluxos de contratação e integração com APIs.'], state: 'Em desenvolvimento, com repositório privado. A disponibilidade comercial e a validação dos aplicativos em dispositivos ainda estão pendentes.' }
+};
+const dialog = document.querySelector('#project-dialog');
+let lastTrigger = null;
+if (dialog && typeof dialog.showModal === 'function') {
+  document.querySelectorAll('[data-project]').forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const project = details[button.dataset.project];
+      if (!project) return;
+      lastTrigger = button;
+      document.querySelector('#dialog-title').textContent = project.title;
+      document.querySelector('#dialog-description').textContent = project.description;
+      document.querySelector('#dialog-state').textContent = project.state;
+      const list = document.querySelector('#dialog-learning');
+      list.replaceChildren(...project.learning.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
+      dialog.showModal();
+    });
   });
-});
+  dialog.querySelectorAll('.close-dialog').forEach(button => button.addEventListener('click', () => dialog.close()));
+  dialog.addEventListener('close', () => lastTrigger?.focus());
+}
 
-/* ── NAVBAR — efeito ao rolar ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.section-heading, .skill-card, .ai-card, .about-grid, .contact-section').forEach(item => { item.classList.add('reveal-ready'); observer.observe(item); });
+}
+document.querySelector('#year').textContent = String(new Date().getFullYear());
 
-/* ── INTERSECTION OBSERVER
-   Revela elementos e anima barras de skill
-   quando entram na tela ── */
-const revealEls = document.querySelectorAll('.reveal');
+// Only explicitly selected public repositories are queried. No credentials or private events.
+const publicRepositories = ['portfolio', 'financeflow', 'taskflow', 'calculadora'];
+const repositoryNames = { portfolio: 'Portfólio', financeflow: 'FinanceFlow', taskflow: 'TaskFlow', calculadora: 'Calculadora' };
+const activityStatus = document.querySelector('#activity-status');
+const activityList = document.querySelector('#activity-list');
+const refreshButton = document.querySelector('#refresh-activity');
+let fetchingActivity = false;
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.delay || (i * 80);
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-        // Anima barras de skill dentro do elemento
-        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-          bar.style.width = bar.dataset.width + '%';
-        });
-      }, delay);
-      observer.unobserve(entry.target);
-    }
+async function readCommits(repository) {
+  const response = await fetch(`https://api.github.com/repos/glzada240hz-commits/${repository}/commits?per_page=3`, { signal: AbortSignal.timeout(9000), headers: { Accept: 'application/vnd.github+json' } });
+  if (!response.ok) throw new Error(`GitHub ${response.status}`);
+  const data = await response.json();
+  if (!Array.isArray(data)) throw new Error('Resposta inválida');
+  return data.flatMap(item => {
+    const date = item.commit?.committer?.date;
+    if (!/^[a-f0-9]{40}$/i.test(item.sha || '') || typeof item.commit?.message !== 'string' || !Number.isFinite(Date.parse(date))) return [];
+    return [{ repository, sha: item.sha, message: item.commit.message.split('\n')[0], date }];
   });
-}, { threshold: 0.15 });
+}
 
-revealEls.forEach((el, i) => {
-  el.dataset.delay = i * 60;
-  observer.observe(el);
-});
-
-/* ── ACTIVE NAV LINK
-   Destaca o link da seção visível no momento ── */
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a');
-
-const secObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(a => a.style.color = '');
-      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (active) active.style.color = 'var(--accent)';
-    }
+function renderCommits(commits) {
+  const formatter = new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'America/Sao_Paulo' });
+  const items = commits.sort((a, b) => Date.parse(b.date) - Date.parse(a.date)).slice(0, 6).map(commit => {
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = `https://github.com/glzada240hz-commits/${commit.repository}/commit/${commit.sha}`;
+    link.target = '_blank'; link.rel = 'noopener noreferrer';
+    const icon = document.createElement('span'); icon.className = 'commit-icon'; icon.textContent = '⑂'; icon.setAttribute('aria-hidden', 'true');
+    const copy = document.createElement('span'); copy.className = 'commit-copy';
+    const title = document.createElement('strong'); title.textContent = commit.message; title.title = commit.message;
+    const subtitle = document.createElement('small'); subtitle.textContent = `${repositoryNames[commit.repository]} · ${commit.sha.slice(0, 7)}`;
+    const time = document.createElement('time'); time.dateTime = commit.date; time.textContent = formatter.format(new Date(commit.date));
+    copy.append(title, subtitle); link.append(icon, copy, time); item.append(link); return item;
   });
-}, { threshold: 0.4 });
+  activityList.replaceChildren(...items);
+}
 
-sections.forEach(s => secObserver.observe(s));
+async function loadActivity() {
+  if (fetchingActivity) return;
+  fetchingActivity = true; refreshButton.disabled = true;
+  activityStatus.textContent = 'Consultando commits públicos no GitHub…';
+  const results = await Promise.allSettled(publicRepositories.map(readCommits));
+  const commits = results.flatMap(result => result.status === 'fulfilled' ? result.value : []);
+  if (commits.length) {
+    renderCommits(commits);
+    activityStatus.textContent = results.every(result => result.status === 'fulfilled') ? 'Commits reais, ordenados pela data de registro no GitHub.' : 'Parte da atividade está indisponível. Exibindo os repositórios consultados com sucesso.';
+  } else {
+    activityStatus.textContent = activityList.children.length ? 'Não foi possível atualizar agora. A lista anterior foi mantida; consulte os repositórios abaixo.' : 'Não foi possível consultar a atividade agora. A API pode estar indisponível ou ter atingido o limite de consultas. Acesse os commits pelos links abaixo.';
+  }
+  refreshButton.disabled = false; fetchingActivity = false;
+}
+if (activityStatus && activityList && refreshButton) {
+  refreshButton.hidden = false;
+  refreshButton.addEventListener('click', loadActivity);
+  // Load only when the section is approached, avoiding unnecessary API calls.
+  if ('IntersectionObserver' in window) {
+    const activityObserver = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { activityObserver.disconnect(); void loadActivity(); } }, { rootMargin: '250px' });
+    activityObserver.observe(document.querySelector('#atividade'));
+  } else { void loadActivity(); }
+}
